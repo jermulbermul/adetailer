@@ -50,7 +50,7 @@ def ultralytics_predict(
 
 
 def apply_classes(model: YOLO | YOLOWorld, model_path: str | Path, classes: str):
-    if not classes or "-world" not in Path(model_path).stem:
+    if not classes or "-world" or "-classed" not in Path(model_path).stem:
         return
     parsed = [c.strip() for c in classes.split(",") if c.strip()]
     if parsed:
